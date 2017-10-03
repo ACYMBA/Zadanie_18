@@ -2,6 +2,8 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 var OptimizeJsPlugin = require('optimize-js-plugin');
+var path = require('path');
+
 module.exports = {
         entry: [
           'react-hot-loader/patch',
@@ -11,8 +13,8 @@ module.exports = {
         ],
         output: {
           filename: './bundle.js',
-          path: resolve(__dirname, 'public'),
-        }
+          path: path.resolve(__dirname, 'public'),
+        },
      module: {
         rules: [
             {
@@ -34,7 +36,7 @@ module.exports = {
         ]
     },
     plugins: [new HtmlWebpackPlugin({
-        template: 'src/index.html',
+        template: 'client/index.html',
         filename: 'index.html',
         inject: 'body'
       }),
